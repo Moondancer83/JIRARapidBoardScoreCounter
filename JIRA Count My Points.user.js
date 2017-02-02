@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         JIRA Count My Points
+// @name         JIRA Rapid Board Score Counter
 // @namespace    http://ww.kalee.hu
-// @version      0.0.1
+// @version      0.0.2
 // @description  Counting the story points I have delivered.
 // @author       Moondancer83
 // @include      /jira.*/secure/RapidBoard.jspa*/
@@ -31,6 +31,7 @@
         var points = 0;
         var myPoints = 0;
 
+        // Total points in sprint
         $(".ghx-backlog-container.ghx-sprint-active .ghx-end img.ghx-avatar-img")
             .next("[title='Story Points']")
             .toArray()
@@ -42,7 +43,8 @@
                 }
             });
 
-        $(".ghx-backlog-container.ghx-sprint-active .ghx-end img[src*=" + username +"].ghx-avatar-img")
+        // Scored points of me
+        $(".ghx-backlog-container.ghx-sprint-active .ghx-done .ghx-end img[src*=" + username +"].ghx-avatar-img")
             .next("[title='Story Points']")
             .toArray()
             .forEach(
@@ -53,7 +55,7 @@
                 }
             });
 
-        var badge = '<span class="aui-badge point-counter" title="points (my/all): ' + myPoints + ' / ' + points + '">' + myPoints + ' / ' + points + '</span>';
+        var badge = '<span class="aui-badge point-counter" title="Points (my/all): ' + myPoints + ' / ' + points + '">' + myPoints + ' / ' + points + '</span>';
         $('.ghx-badge-group').prepend(badge);
     }
 })();
