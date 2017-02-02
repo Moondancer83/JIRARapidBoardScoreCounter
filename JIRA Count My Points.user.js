@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA Rapid Board Score Counter
-// @namespace    http://ww.kalee.hu
-// @version      0.0.2
+// @namespace    http://www.kalee.hu
+// @version      0.0.3
 // @description  Counting the story points I have delivered.
 // @author       Moondancer83
 // @include      /jira.*/secure/RapidBoard.jspa*/
